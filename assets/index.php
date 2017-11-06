@@ -29,8 +29,10 @@
             <p class=" col-xs-12 col-sm-offset-3 col-sm-6 col-md-offset-4 col-md-8 col-lg-offset-4 col-lg-6"><img src="../logobis.png" class="img-responsive" width="400" height="63"></p>
         </div>
     </header>
-    <div class="row">
-        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <main>
+        <div class="container">
+            <div class="row">
+        
             <?php
             
             $dir = '/var/www/html/ExplorateurDeFichier/';
@@ -40,20 +42,22 @@
             
             unset($files[0], $files[1]);
             natcasesort($files);
-            print_r($files);
+            // print_r($files);
             
             if (is_dir($dir)) {
                 if ($dh = opendir($dir)) {
                     while (($file = readdir($dh)) !== false) {
                         
                         if(strpos($file, $php)){
-                            print '<p><img src="assets/img/singe.jpg" width="100" height="100" ></p>';
-                            echo $file."<br>";
+                            echo "<div class='block text-center col-xs-6 col-sm-6 col-md-3 col-lg-2'>";
+                            print '<img src="img/singe.jpg" width="110" height="145" ><br>' .$file;
+                            echo "</div>";
                            
                         }
                         if(strpos($file, $png)){
-                            print '<p class="block"><img src="assets/img/jpg.png" width="110" height="145" ></p>';
-                            echo $file."<br>";
+                            echo "<div class='block text-center col-xs-6 col-sm-6 col-md-3 col-lg-2'>";
+                            print '<img src="img/jpg.png" width="110" height="145" ><br>' .$file;
+                            echo "</div>";
                            
                         }
                         
@@ -63,8 +67,9 @@
             }
             
             ?>
+             </div>
         </div>
-    </div>
+     </main>
     
 </body>
 </html>
