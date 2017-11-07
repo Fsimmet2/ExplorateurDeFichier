@@ -12,6 +12,16 @@ header {
         padding-top: 20px;
 }
 
+.folder:hover{
+        cursor: pointer;
+
+}
+
+.cacher{
+        opacity: 0.3;
+}
+
+
 
 /* .logo {
     display: none;
