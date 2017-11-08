@@ -12,7 +12,7 @@ function rmv(the_url)
 		var res = str.replace(/\\/g, "/");
 		console.log("B    "+res);
 		var the_arr = res.split('/');
-		console.log("C    "+the_arr);
+		console.log("cfC    "+the_arr);
 		return(the_arr.join('/') );
 	}
 	else{
@@ -31,6 +31,7 @@ return(the_arr.join('/') );
 }
 
 
+
 function generate(path = ''){
 	
 	
@@ -46,8 +47,13 @@ $.ajax({
 		
 		console.log('new   ' + previous );
 		
+		/*if((result[0].dirpath == '/xampp/htdocs/ExplorateurDeFichier')){
+		$("#affichage").append("<ul class='breadcrumb'><li class='crumb first-crumb'>index</li></ul>")
+		
+		}*/
+		
 		if(!(result[0].dirpath == '/xampp/htdocs/ExplorateurDeFichier')){
-		$('#affichage').append("<div  class='block text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/fleche.png' class='fleche' data-p='"+previous+"' alt='retour' width='120' height='120' ></br>RETOUR" );
+		$('#affichage').append("<div  class='block text-center col-xs-6 col-sm-3 col-md-2 col-lg-2 img-responsive'><img src='assets/img/fleche.png' class='fleche' data-p='"+previous+"' alt='retour' width='120' height='120' ></br>RETOUR" );
 			console.log("BONJOUR       " +previous);
 		}
 		
@@ -93,18 +99,13 @@ $.ajax({
                 else if(val.extension == 'gif'){
                     console.log('gif');
                     $('#affichage').append("<div class='block roll-in-right fichier text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/gif.png' width='120' height='120'  alt='fichier'></br>" + val.name + '<br>' + val.size + ' octets');
-
-                    
-
+				}
                 
-                else
-
-
+                else{
                 $('#affichage').append("<div class='block roll-in-right fichier text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/fichier.png' width='120' height='120'  ></br>" + val.name + '<br>' + val.size + ' octets');
-
-                $('#affichage').append("<div class='block roll-in-right text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/fichier.png' width='100%'  ></br>" + val.name + '<br>' + val.size + ' octets');
-
-               });
+               }
+				
+			});
             
 			
             $( ".fleche" ).click(function() {
