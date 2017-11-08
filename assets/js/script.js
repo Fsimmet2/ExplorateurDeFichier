@@ -34,7 +34,7 @@ $.ajax({
                 }
                 else if(val.extension == 'js'){
                     console.log('js');
-                    $('#affichage').append("<div class='block roll-in-right text-center col-xs-6 col-sm-6 col-md-3 col-lg-2'><img src='assets/img/js.png' width='110' height='145' ></br>" + val.name + '<br>' + val.size + ' octets');
+                    $('#affichage').append("<div class='block roll-in-right text-center col-xs-6 col-sm-6 col-md-3 col-lg-2'><img src='assets/img/javascript.png' width='110' height='145' ></br>" + val.name + '<br>' + val.size + ' octets');
                 }
                 else if(val.extension == 'png'){
                     console.log('png');
