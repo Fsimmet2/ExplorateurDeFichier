@@ -56,6 +56,7 @@ $.ajax({
                 
                 if(val.type == 'dir'){
                     if(val.name[0] == '.'){
+
                         $('#affichage').append("<div class=' roll-in-right folder block text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/creature.png' alt='dossier' width='120' height='120' ></br>" + val.name + '<br>' + val.size + ' octets');
                     }
                     else
@@ -93,13 +94,15 @@ $.ajax({
                     console.log('gif');
                     $('#affichage').append("<div class='block roll-in-right fichier text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/gif.png' width='120' height='120'  alt='fichier'></br>" + val.name + '<br>' + val.size + ' octets');
 
-                }
-                
+                    
 
                 
                 else
 
+
                 $('#affichage').append("<div class='block roll-in-right fichier text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/fichier.png' width='120' height='120'  ></br>" + val.name + '<br>' + val.size + ' octets');
+
+                $('#affichage').append("<div class='block roll-in-right text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/fichier.png' width='100%'  ></br>" + val.name + '<br>' + val.size + ' octets');
 
                });
             
