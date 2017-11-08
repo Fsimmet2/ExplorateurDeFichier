@@ -17,7 +17,7 @@ if(isset($_POST['toto'])){
     $dir = '/var/www/html/ExplorateurDeFichier/';
 }
 
-$tab = [];
+
     
     foreach (new DirectoryIterator($dir) as $file) {
   
@@ -29,7 +29,7 @@ $tab = [];
             'extension' => $file->getExtension(),
             'path' => $file->getPathname(),
             'type' => $file->getType(),
-            'size' => $file->getSize(),
+            'size' => $file->getSize()
         ];
 }
 	
