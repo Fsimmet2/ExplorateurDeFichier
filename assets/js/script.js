@@ -3,33 +3,34 @@ $(document).ready(function(){
     generate();
 });
 
+
+// remplacement des \ par / et suppression du dernier nom du dir
+
 function rmv(the_url)
 {
 	if ((the_url == "/var/www/html/") || (the_url == "/var/www/") || (the_url == "/")) {
+
 		the_url == "/var/www/html/ExplorateurDeFichier";
 		var str = the_url;
-		console.log("A    "+str);
 		var res = str.replace(/\\/g, "/");
-		console.log("B    "+res);
 		var the_arr = res.split('/');
-		console.log("cfC    "+the_arr);
 		return(the_arr.join('/') );
 	}
 	else{
+
 		var str = the_url;
-console.log("A    "+str);
-var res = str.replace(/\\/g, "/");
-	console.log("B    "+res);
-var the_arr = res.split('/');
-	console.log("C    "+the_arr);
-the_arr.pop();
-	the_arr.pop();
-return(the_arr.join('/') );
+        var res = str.replace(/\\/g, "/");
+        var the_arr = res.split('/');
+        the_arr.pop();
+	    the_arr.pop();
+        return(the_arr.join('/') );
 	}
 	
 
 }
 
+
+// telechargement des fichiers
 
 
 function dl(name){
@@ -49,8 +50,10 @@ function dl(name){
 }
 }
 
+
 function generate(path = ''){
-	
+    
+// requete ajax
 	
 $.ajax({
     url: "http://localhost/ExplorateurDeFichier/assets/php/explo.php",
@@ -74,7 +77,8 @@ $.ajax({
 		
 		if(!(result[0].dirpath == '/var/www/html/ExplorateurDeFichier')){
 		$('#affichage').append("<div  class='block roll-in-left fichier text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/fleche.png' class='fleche img-responsive ' data-p='"+previous+"' alt='retour' width='120' height='120' ></br>RETOUR" );
-		}
+        }
+        // conditions affichage des images selon l'extension des fichiers et dir
 		
             $.each( result, function( i, val ) {
 
@@ -114,16 +118,13 @@ $.ajax({
                     $('#affichage').append("<div class='block roll-in-right fichier text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/gif.png' width='100%'  alt='fichier'></br>" + val.name + '<br>' + humanFileSize(val.size) + '</div>');
 
                 }
-                
-
-                
                 else
-
-                $('#affichage').append("<div class='block roll-in-right fichier text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/fichier.png' width='100%'  ></br>" + val.name + '<br>' + humanFileSize(val.size) + '</div>');
+                    $('#affichage').append("<div class='block roll-in-right fichier text-center col-xs-6 col-sm-3 col-md-2 col-lg-2'><img src='assets/img/fichier.png' width='100%'  ></br>" + val.name + '<br>' + humanFileSize(val.size) + '</div>');
 
                });
             
-			
+            // fleche retour 
+            
             $( ".fleche" ).click(function() {
                	var pathPrevious = $(this).attr("data-p");
 				$('#affichage').html("");
@@ -131,7 +132,9 @@ $.ajax({
                 	
 
             });
-		
+
+            // ouverture d'un dossier au click
+        
             $( ".folder" ).click(function() {
 				
                 var path = ($(this).attr("data"));
@@ -152,6 +155,8 @@ $.ajax({
     },
 });
 }
+
+// affichage de la taille des fichiers
 
 function humanFileSize(size) {
     var i = size == 0 ? 0 :Math.floor( Math.log(size) / Math.log(1024) );

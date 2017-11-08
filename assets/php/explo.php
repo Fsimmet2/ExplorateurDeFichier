@@ -1,7 +1,7 @@
 <?php
 
 
-
+// verification path
 
 if(isset($_POST['toto'])){
     
@@ -17,6 +17,7 @@ if(isset($_POST['toto'])){
     $dir = '/var/www/html/ExplorateurDeFichier/';
 }
 
+// boucle tableau 
 
     
     foreach (new DirectoryIterator($dir) as $file) {
@@ -35,7 +36,7 @@ if(isset($_POST['toto'])){
 	
 	
     
-
+// renvoie du tableau en json 
 
 if(!empty($tab)){
     echo json_encode($tab);
