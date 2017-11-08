@@ -1,3 +1,17 @@
+@font-face {
+	font-family: 'dosis';
+	src: url('../fonts/Dosis-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: "slapstic";
+	src: url('../fonts/Slapstick.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
 header {
     background-image: url('../img/bg2.jpg');
     width: 100%;
@@ -8,19 +22,34 @@ header {
 }
 
 
+
 .block {
         display: inline;
         padding-top: 20px;
 }
+.folder {
+	font-family: "slapstic";
+	font-size: 15px;
+}
 
+.fichier {
+	font-family: "slapstic";
+	font-size: 15px;
+}
 .folder:hover{
         cursor: pointer;
+	background-color: rgba(0, 0, 0, 0.1);
+	
 
 }
 .fleche:hover{
         cursor: pointer;
-
 }
+
+.fichier:hover {
+	background-color: rgba(0, 0, 0, 0.05);
+}
+
 
 
 
@@ -168,4 +197,5 @@ header {
                   animation-timing-function: ease-out;
         }
       }
-      
+
+

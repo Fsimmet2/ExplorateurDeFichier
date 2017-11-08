@@ -12,7 +12,7 @@ function rmv(the_url)
 		var res = str.replace(/\\/g, "/");
 		console.log("B    "+res);
 		var the_arr = res.split('/');
-		console.log("C    "+the_arr);
+		console.log("cfC    "+the_arr);
 		return(the_arr.join('/') );
 	}
 	else{
